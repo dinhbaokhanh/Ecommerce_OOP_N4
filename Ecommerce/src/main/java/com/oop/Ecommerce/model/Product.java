@@ -8,8 +8,8 @@ import java.util.List;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String productId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Sử dụng IDENTITY thay vì UUID
+    private Long productId;
 
     @NotBlank(message = "Product name is mandatory")
     private String name;
@@ -22,6 +22,10 @@ public class Product {
 
     @NotNull(message = "Stock quantity is mandatory")
     private int stockQuantity;
+
+    @ManyToOne // Thêm mối quan hệ ManyToOne với Inventory
+    @JoinColumn(name = "inventory_id") // Tham chiếu đến khóa chính trong bảng Inventory
+    private Inventory inventory;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Review> reviews;
@@ -43,12 +47,12 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
-    // Getters and Setters
-    public String getProductId() {
+    // Getters và Setters
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -82,6 +86,14 @@ public class Product {
 
     public void setStockQuantity(int stockQuantity) {
         this.stockQuantity = stockQuantity;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 
     public List<Review> getReviews() {
