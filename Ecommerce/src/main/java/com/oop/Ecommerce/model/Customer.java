@@ -9,11 +9,5 @@ public class Customer extends User{
         return shippingAddress;
     }
 
-    public void setShippingAddress(String shippingAddress) {
-        this.shippingAddress = shippingAddress;
-    }
 
-    public Customer(int userId, String name, String email, String password, Role role) {
-        super(userId, name, email, password, role);
-    }
 }
