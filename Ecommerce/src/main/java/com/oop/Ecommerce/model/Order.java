@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -32,7 +33,7 @@ public class Order {
     private Payment payment; // Thông tin thanh toán
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "shipping_id", referencedColumnName = "shippingId")
+    @JoinColumn(name = "shipping_id", referencedColumnName = "trackingId")
     private ShippingTracker shipping; // Thông tin giao hàng
 
     // Constructors, Getters, Setters không có phương thức logic

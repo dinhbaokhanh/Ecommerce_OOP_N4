@@ -1,4 +1,3 @@
-# C?u hình c?ng cho ?ng d?ng Spring Boot
 server:
   port: 8080
 
@@ -11,7 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:

@@ -24,7 +24,11 @@ public class Customer extends User {
     // Constructor mặc định
     public Customer() {}
 
-    // Constructor với tất cả các thuộc tính
+    public Customer(String userId, String name, String email, String password, Role role, String shippingAddress) {
+        super(userId, name, email, password, role); // Gọi constructor của lớp cha (User)
+        this.shippingAddress = shippingAddress;
+    }
+
     public Customer(String name, String email, String password, Role role, String shippingAddress) {
         super(name, email, password, role); // Gọi constructor của lớp cha (User)
         this.shippingAddress = shippingAddress;

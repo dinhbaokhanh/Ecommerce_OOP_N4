@@ -3,6 +3,7 @@ package com.oop.Ecommerce.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "shipping")
 public class ShippingTracker {
 
     @Id
