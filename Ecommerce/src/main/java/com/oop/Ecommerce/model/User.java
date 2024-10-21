@@ -1,19 +1,43 @@
 package com.oop.Ecommerce.model;
 
-enum Role {
-    ADMIN,
-    CUSTOMER,
-}
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String userId;
 
-    private int userId;
+    @NotBlank(message = "Name is mandatory")
+    @Size(min = 2, max = 30, message = "Name must be between 2 and 30 characters")
     private String name;
+
+    @NotBlank(message = "Email is mandatory")
+    @Email(message = "Email should be valid")
     private String email;
+
+    @NotBlank(message = "Password is mandatory")
+    @Size(min = 6, message = "Password must have at least 6 characters")
     private String password;
+
+    @NotNull(message = "Role is mandatory")
+    @Enumerated(EnumType.STRING)
     private Role role;
 
-    public User(int userId, String name, String email, String password, Role role){
+    public User() {}
+
+    public User(String name, String email, String password, Role role) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User(String userId, String name, String email, String password, Role role) {
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -21,11 +45,12 @@ public class User {
         this.role = role;
     }
 
-    public int getUserId() {
+    // Getters và Setters
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
