@@ -30,12 +30,6 @@ public class User {
 
     public User() {}
 
-    public User(String name, String email, String password, Role role) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
 
     public User(String userId, String name, String email, String password, Role role) {
         this.userId = userId;
@@ -45,7 +39,6 @@ public class User {
         this.role = role;
     }
 
-    // Getters và Setters
     public String getUserId() {
         return userId;
     }
