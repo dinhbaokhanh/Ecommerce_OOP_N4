@@ -1,10 +1,11 @@
 package com.oop.Ecommerce.model;
 
+enum Role {
+    ADMIN,
+    CUSTOMER,
+}
+
 public class User {
-    enum Role {
-        ADMIN,
-        CUSTOMER
-    }
 
     private int userId;
     private String name;
