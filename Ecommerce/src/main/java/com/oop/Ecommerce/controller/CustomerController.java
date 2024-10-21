@@ -1,9 +1,11 @@
 package com.oop.Ecommerce.controller;
 
+import com.oop.Ecommerce.dto.request.ApiResponse;
 import com.oop.Ecommerce.dto.request.CustomerCreationRequest;
 import com.oop.Ecommerce.dto.request.CustomerUpdateRequest;
 import com.oop.Ecommerce.model.Customer;
 import com.oop.Ecommerce.service.CustomerService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +18,12 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping()
-    Customer createCustomer(@RequestBody CustomerCreationRequest request){
-        return customerService.createCustomer(request);
+    ApiResponse<Customer> createCustomer(@RequestBody @Valid CustomerCreationRequest request){
+        ApiResponse<Customer> apiResponse = new ApiResponse<>();
+
+        apiResponse.setResult(customerService.createCustomer(request));
+
+        return apiResponse;
     }
 
     @GetMapping()

@@ -2,6 +2,8 @@ package com.oop.Ecommerce.service;
 
 import com.oop.Ecommerce.dto.request.CustomerCreationRequest;
 import com.oop.Ecommerce.dto.request.CustomerUpdateRequest;
+import com.oop.Ecommerce.exception.AppException;
+import com.oop.Ecommerce.exception.ErrorCode;
 import com.oop.Ecommerce.model.Customer;
 import com.oop.Ecommerce.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,10 @@ public class CustomerService {
 
     public Customer createCustomer(CustomerCreationRequest request){
         Customer customer = new Customer();
+
+        if (customerRepository.existsByEmail(request.getEmail())){
+            throw new AppException(ErrorCode.USER_EXISTED);
+        }
 
         customer.setEmail(request.getEmail());
         customer.setName(request.getName());
