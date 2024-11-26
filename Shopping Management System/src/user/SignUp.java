@@ -8,6 +8,8 @@ import dao.TransactionDTO;
 import dao.UserBalanceDAO;
 import dao.UserDAO;
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,7 +26,6 @@ import javax.swing.JOptionPane;
  * @author admin
  */
 public class SignUp extends javax.swing.JFrame {
-
     private List<UserDAO> userList;
     private static final String FILE_NAME = "USER.DAT";
 
@@ -46,6 +48,19 @@ public class SignUp extends javax.swing.JFrame {
         this();
         LoadDataUserBalance();
         this.login = login;
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);  // Ngăn không cho cửa sổ đóng trực tiếp
+
+        // Lắng nghe sự kiện đóng cửa sổ
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Ẩn cửa sổ SignUp
+                SignUp.this.setVisible(false);
+
+                // Hiển thị lại cửa sổ login
+                login.setVisible(true);
+            }
+        });
     }
 
     private void LoadData() {
@@ -156,7 +171,7 @@ public class SignUp extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         lbHidden = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -239,10 +254,10 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("X");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        jButton2.setText("X");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -286,18 +301,18 @@ public class SignUp extends javax.swing.JFrame {
                                 .addGap(36, 36, 36))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(104, 104, 104)
-                                .addComponent(jButton1))))))
+                                .addGap(106, 106, 106)
+                                .addComponent(jButton2))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(jButton2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addGap(16, 16, 16)
                         .addComponent(jLabel1)))
-                .addGap(28, 28, 28)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -366,11 +381,6 @@ public class SignUp extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButton1MouseClicked
-
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         if (isSignUpInformationValid()) {
@@ -436,9 +446,16 @@ public class SignUp extends javax.swing.JFrame {
         lbHidden.setOpaque(false); // Không hiển thị màu nền
     }//GEN-LAST:event_lbHiddenMouseExited
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        login.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -475,7 +492,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cbSecurity;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

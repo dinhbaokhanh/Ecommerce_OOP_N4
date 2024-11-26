@@ -81,9 +81,9 @@ public class Login extends javax.swing.JFrame {
 /////////////////////////////////////////////////////////////
     private void LoadData() {
         File file = new File(FILE_NAME);
-//        if (file.exists()) {
-//            file.delete();
-//        }
+        if (file.exists()) {
+            file.delete();
+        }
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -131,9 +131,9 @@ public class Login extends javax.swing.JFrame {
 
     private void LoadDataToSupplierList() {
         File file = new File(FILE_NAME_SUPPLIER);
-//        if (file.exists()) {
-//            file.delete();
-//        }
+        if (file.exists()) {
+            file.delete();
+        }
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -173,9 +173,9 @@ public class Login extends javax.swing.JFrame {
 ///////////////////////////////////////////////////
     private void LoadDataToCategoryList() {
         File file = new File(FILE_NAME_CATEGORY);
-//        if (file.exists()) {
-//            file.delete();
-//        }
+        if (file.exists()) {
+            file.delete();
+        }
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -215,9 +215,9 @@ public class Login extends javax.swing.JFrame {
 ///////////////////////////////////////////////////
     private void LoadDataToProductList() {
         File file = new File(FILE_NAME_PRODUCT);
-//        if (file.exists()) {
-//            file.delete();
-//        }
+        if (file.exists()) {
+            file.delete();
+        }
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -257,9 +257,9 @@ public class Login extends javax.swing.JFrame {
 
     private void LoadDataToTransactionList() {
         File file = new File(FILE_NAME_TRANSACTION);
-//        if (file.exists()) {
-//            file.delete();
-//        }
+        if (file.exists()) {
+            file.delete();
+        }
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -306,9 +306,9 @@ public class Login extends javax.swing.JFrame {
 
     private void LoadDataToUserBalanceList() {
         File file = new File(FILE_NAME_USERBALANCE);
-//        if (file.exists()) {
-//            file.delete();
-//        }
+        if (file.exists()) {
+            file.delete();
+        }
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -387,6 +387,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
@@ -416,7 +417,10 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("TO");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
-        jLabel4.setText("SHOPEE");
+        jLabel4.setText("MY");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+        jLabel5.setText("SHOP");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -428,7 +432,8 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -441,7 +446,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 440));
@@ -782,6 +789,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
