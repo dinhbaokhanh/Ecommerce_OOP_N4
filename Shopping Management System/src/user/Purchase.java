@@ -224,7 +224,8 @@ public class Purchase extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(240, 240, 240));
+        jPanel1.setForeground(new java.awt.Color(240, 240, 240));
 
         tblTransaction.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -267,7 +268,9 @@ public class Purchase extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblProduct);
 
+        btnAdd.setBackground(new java.awt.Color(0, 107, 189));
         btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/transaction_light.png"))); // NOI18N
         btnAdd.setText("ADD");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +279,9 @@ public class Purchase extends javax.swing.JFrame {
             }
         });
 
+        btnPurchase.setBackground(new java.awt.Color(0, 107, 189));
         btnPurchase.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPurchase.setForeground(new java.awt.Color(255, 255, 255));
         btnPurchase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/box_light.png"))); // NOI18N
         btnPurchase.setText("PURCHASE");
         btnPurchase.addActionListener(new java.awt.event.ActionListener() {
