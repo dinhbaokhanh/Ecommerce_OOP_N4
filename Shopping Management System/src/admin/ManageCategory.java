@@ -245,7 +245,6 @@ public class ManageCategory extends javax.swing.JFrame {
             }
         });
 
-        btnGetNewID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGetNewID.setText("get new ID");
         btnGetNewID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
