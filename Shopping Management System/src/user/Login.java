@@ -406,8 +406,6 @@ public class Login extends javax.swing.JFrame {
         jLayeredPane1.setBackground(new java.awt.Color(0, 107, 189));
         jLayeredPane1.setOpaque(true);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 107, 189));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

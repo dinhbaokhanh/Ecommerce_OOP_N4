@@ -152,7 +152,7 @@ public class ManageCategory extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 107, 189));
 
         tblCategory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,16 +177,30 @@ public class ManageCategory extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblCategory);
 
+        txtCategoryID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtCategoryID.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtCategoryID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCategoryIDActionPerformed(evt);
             }
         });
 
+        txtCategoryName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtCategoryName.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+
+        txtCategoryDescription.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtCategoryDescription.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Category ID:");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Category Name:");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Description");
 
         btnSave.setText("Save");
@@ -231,6 +245,7 @@ public class ManageCategory extends javax.swing.JFrame {
             }
         });
 
+        btnGetNewID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGetNewID.setText("get new ID");
         btnGetNewID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

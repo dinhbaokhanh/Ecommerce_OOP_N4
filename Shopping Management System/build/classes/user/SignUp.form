@@ -97,7 +97,7 @@
         <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f2" green="f2" red="f2" type="rgb"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>

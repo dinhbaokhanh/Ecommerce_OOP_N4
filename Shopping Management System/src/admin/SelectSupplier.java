@@ -136,7 +136,7 @@ public class SelectSupplier extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 107, 189));
 
         tblSelectSupplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

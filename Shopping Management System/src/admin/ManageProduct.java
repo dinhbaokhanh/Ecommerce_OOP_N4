@@ -190,7 +190,7 @@ public class ManageProduct extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 107, 189));
 
         tblProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -233,10 +233,13 @@ public class ManageProduct extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Product ID");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Product Name");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Category");
 
         btnSave.setText("Save");
@@ -269,8 +272,10 @@ public class ManageProduct extends javax.swing.JFrame {
 
         cbProductCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Quantity");
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Price");
 
         btnSearch.setText("Search By Name:");
@@ -294,6 +299,7 @@ public class ManageProduct extends javax.swing.JFrame {
             }
         });
 
+        lbImageUrl.setForeground(new java.awt.Color(255, 255, 255));
         lbImageUrl.setText("ImageUrl");
 
         btnNewID.setText("Generate New ID");

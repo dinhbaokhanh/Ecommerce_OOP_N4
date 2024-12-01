@@ -242,13 +242,15 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 107, 189));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shopping.png"))); // NOI18N
         jLabel1.setText("ONLINE SHOPPING");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
         jLabel2.setText("Logout");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,6 +260,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         });
 
         lbAdminEmail.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbAdminEmail.setForeground(new java.awt.Color(255, 255, 255));
         lbAdminEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         lbAdminEmail.setText("admin@gmail.com");
 
@@ -296,9 +299,10 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(0, 107, 189));
+        jPanel2.setForeground(new java.awt.Color(0, 107, 189));
 
-        jPanel3.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dashboard.png"))); // NOI18N
@@ -321,6 +325,8 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        lbManageCategories.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbManageCategories.setForeground(new java.awt.Color(255, 255, 255));
         lbManageCategories.setText("Manage Categories");
         lbManageCategories.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -328,6 +334,8 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
+        lbManageProducts.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbManageProducts.setForeground(new java.awt.Color(255, 255, 255));
         lbManageProducts.setText("Manage Products");
         lbManageProducts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -335,6 +343,8 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
+        lbManageUsers.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbManageUsers.setForeground(new java.awt.Color(255, 255, 255));
         lbManageUsers.setText("Manage Users");
         lbManageUsers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -342,6 +352,8 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Add Supplier");
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -349,6 +361,8 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
+        lbManageSupplier.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbManageSupplier.setForeground(new java.awt.Color(255, 255, 255));
         lbManageSupplier.setText("Manage Suppliers");
         lbManageSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -356,6 +370,8 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Select Supplier");
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -363,6 +379,8 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
+        lbTransaction.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbTransaction.setForeground(new java.awt.Color(255, 255, 255));
         lbTransaction.setText("Transaction");
         lbTransaction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -406,10 +424,10 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
                 .addComponent(lbTransaction)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel4.setBackground(new java.awt.Color(0, 107, 189));
 
         jLabel8.setText("Statistics");
 

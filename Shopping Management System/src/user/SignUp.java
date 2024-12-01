@@ -192,7 +192,7 @@ public class SignUp extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 107, 189));
 
-        jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jLayeredPane1.setBackground(new java.awt.Color(242, 242, 242));
         jLayeredPane1.setOpaque(true);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

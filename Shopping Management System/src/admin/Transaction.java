@@ -98,7 +98,7 @@ public class Transaction extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 107, 189));
 
         txtSearchQuery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

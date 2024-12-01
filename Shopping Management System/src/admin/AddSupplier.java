@@ -160,28 +160,35 @@ public class AddSupplier extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 107, 189));
 
+        txtSupplierID.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtSupplierID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSupplierIDActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Supplier ID:");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Username:");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Email:");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Password:");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Phone:");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Address:");
 
@@ -241,7 +248,7 @@ public class AddSupplier extends javax.swing.JFrame {
                                 .addComponent(txtSupplierAddress)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10)
-                        .addContainerGap(45, Short.MAX_VALUE))))
+                        .addContainerGap(18, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
