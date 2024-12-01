@@ -156,14 +156,17 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(240, 240, 240));
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 107, 189));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shopping.png"))); // NOI18N
         jLabel1.setText("ONLINE SHOPPING");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
         jLabel2.setText("Logout");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,6 +176,7 @@ public class UserDashboard extends javax.swing.JFrame {
         });
 
         lbUserEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbUserEmail.setForeground(new java.awt.Color(255, 255, 255));
         lbUserEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         lbUserEmail.setText("user@gmail.com");
 
@@ -211,9 +215,9 @@ public class UserDashboard extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(0, 107, 189));
 
-        jPanel3.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dashboard.png"))); // NOI18N
@@ -237,6 +241,7 @@ public class UserDashboard extends javax.swing.JFrame {
         );
 
         lbPurchase.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lbPurchase.setForeground(new java.awt.Color(255, 255, 255));
         lbPurchase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shopping.png"))); // NOI18N
         lbPurchase.setText("Purchase");
         lbPurchase.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,6 +257,7 @@ public class UserDashboard extends javax.swing.JFrame {
         });
 
         lbPurchaseDetail.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lbPurchaseDetail.setForeground(new java.awt.Color(255, 255, 255));
         lbPurchaseDetail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/product_light.png"))); // NOI18N
         lbPurchaseDetail.setText("Purchase Details");
         lbPurchaseDetail.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -267,6 +273,7 @@ public class UserDashboard extends javax.swing.JFrame {
         });
 
         lbMyAccount.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lbMyAccount.setForeground(new java.awt.Color(255, 255, 255));
         lbMyAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit_supplier_light.png"))); // NOI18N
         lbMyAccount.setText("My Account");
         lbMyAccount.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,9 +315,10 @@ public class UserDashboard extends javax.swing.JFrame {
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel4.setBackground(new java.awt.Color(0, 107, 189));
 
         lbTotalPurchase.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbTotalPurchase.setForeground(new java.awt.Color(255, 255, 255));
         lbTotalPurchase.setText("Total Purchase:");
 
         txtTotalPurchase.addActionListener(new java.awt.event.ActionListener() {
@@ -320,7 +328,8 @@ public class UserDashboard extends javax.swing.JFrame {
         });
 
         lbUserBalance.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbUserBalance.setText("My Blance:");
+        lbUserBalance.setForeground(new java.awt.Color(255, 255, 255));
+        lbUserBalance.setText("My Balance:");
 
         btnAddMoreBalance.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnAddMoreBalance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/transaction_light.png"))); // NOI18N
