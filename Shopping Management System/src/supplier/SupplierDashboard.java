@@ -70,13 +70,16 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 107, 189));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shopping.png"))); // NOI18N
         jLabel1.setText("ONLINE SHOPPING");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
         jLabel2.setText("Logout");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,6 +89,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         });
 
         lbSupplierEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbSupplierEmail.setForeground(new java.awt.Color(255, 255, 255));
         lbSupplierEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         lbSupplierEmail.setText("supplier@gmail.com");
 
@@ -113,7 +117,8 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(0, 107, 189));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(153, 0, 153));
 
@@ -139,6 +144,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         );
 
         lbDelivery.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lbDelivery.setForeground(new java.awt.Color(255, 255, 255));
         lbDelivery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/supplier_light.png"))); // NOI18N
         lbDelivery.setText("Delivery");
         lbDelivery.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -154,6 +160,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         });
 
         lbMyDelivery.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lbMyDelivery.setForeground(new java.awt.Color(255, 255, 255));
         lbMyDelivery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delivery_light.png"))); // NOI18N
         lbMyDelivery.setText("My Deliveries");
         lbMyDelivery.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -169,6 +176,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         });
 
         lbMyAccount.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lbMyAccount.setForeground(new java.awt.Color(255, 255, 255));
         lbMyAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit_user.png"))); // NOI18N
         lbMyAccount.setText("My Account");
         lbMyAccount.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,11 +219,14 @@ public class SupplierDashboard extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("My Statistics");
 
         lbMyDeliveries.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbMyDeliveries.setForeground(new java.awt.Color(255, 255, 255));
         lbMyDeliveries.setText("My Deliveries:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
