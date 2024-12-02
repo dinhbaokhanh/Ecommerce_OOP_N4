@@ -182,7 +182,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="0" red="99" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
 
@@ -295,6 +295,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lbMyDeliveries" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="txtMyDelivery" min="-2" pref="104" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -310,7 +312,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lbMyDeliveries" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbMyDeliveries" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMyDelivery" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="56" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -338,6 +343,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="My Deliveries:"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtMyDelivery">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMyDeliveryActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

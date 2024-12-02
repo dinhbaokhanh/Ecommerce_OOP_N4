@@ -5,7 +5,14 @@
 package supplier;
 
 import dao.SupplierDAO;
+import dao.TransactionDTO;
 import java.awt.Color;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import user.Login;
 
@@ -20,6 +27,9 @@ public class SupplierDashboard extends javax.swing.JFrame {
      */
     private SupplierDAO supplier;
     private Login login;
+
+    private List<TransactionDTO> transactionListMain = new ArrayList<>();
+    private static final String FILE_NAME_TRANSACTION = "TRANSACTION.DAT";
 
     public SupplierDAO getSupplier() {
         return supplier;
@@ -39,10 +49,35 @@ public class SupplierDashboard extends javax.swing.JFrame {
         this.supplier = supplier;
         this.login = login;
         lbSupplierEmail.setText(this.supplier.getSupplierEmail());
+        LoadDataTransaction();
+        txtMyDelivery.setText(getMyDeliveriesTotal());
+    }
+
+    private void LoadDataTransaction() {
+        File file = new File(FILE_NAME_TRANSACTION);
+        if (file.length() > 0) {
+            try (FileInputStream fis = new FileInputStream(FILE_NAME_TRANSACTION); ObjectInputStream ois = new ObjectInputStream(fis)) {
+                transactionListMain = (List<TransactionDTO>) ois.readObject();  // Đọc danh sách người dùng từ tệp
+            } catch (IOException | ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            transactionListMain = new ArrayList<>();  // Nếu tệp rỗng, khởi tạo danh sách trống
+        }
     }
 
     public void setLbSupplierEmailText() {
         lbSupplierEmail.setText(this.supplier.getSupplierEmail());
+    }
+
+    public String getMyDeliveriesTotal() {
+        int cnt = 0;
+        for (TransactionDTO transaction : transactionListMain) {
+            if (transaction.getSupplierName().equals(supplier.getSupplierName())) {
+                cnt += 1;
+            }
+        }
+        return String.valueOf(cnt);
     }
 
     /**
@@ -67,6 +102,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         lbMyDeliveries = new javax.swing.JLabel();
+        txtMyDelivery = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,7 +156,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 107, 189));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dashboard.png"))); // NOI18N
@@ -229,6 +265,12 @@ public class SupplierDashboard extends javax.swing.JFrame {
         lbMyDeliveries.setForeground(new java.awt.Color(255, 255, 255));
         lbMyDeliveries.setText("My Deliveries:");
 
+        txtMyDelivery.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMyDeliveryActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -236,6 +278,8 @@ public class SupplierDashboard extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbMyDeliveries)
+                .addGap(18, 18, 18)
+                .addComponent(txtMyDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(157, Short.MAX_VALUE)
@@ -248,7 +292,9 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbMyDeliveries)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbMyDeliveries)
+                    .addComponent(txtMyDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -342,6 +388,10 @@ public class SupplierDashboard extends javax.swing.JFrame {
         lbMyAccount.setOpaque(false); // Không hiển thị màu nền
     }//GEN-LAST:event_lbMyAccountMouseExited
 
+    private void txtMyDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMyDeliveryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMyDeliveryActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -391,5 +441,6 @@ public class SupplierDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lbMyDeliveries;
     private javax.swing.JLabel lbMyDelivery;
     private javax.swing.JLabel lbSupplierEmail;
+    private javax.swing.JTextField txtMyDelivery;
     // End of variables declaration//GEN-END:variables
 }

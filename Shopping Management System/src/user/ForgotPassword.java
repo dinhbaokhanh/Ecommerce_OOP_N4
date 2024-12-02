@@ -149,6 +149,9 @@ public class ForgotPassword extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbSearchMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbSearchMouseEntered(evt);
+            }
         });
 
         jButton1.setText("X");
@@ -185,7 +188,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                                         .addComponent(btnBack)
                                         .addGap(31, 31, 31)
                                         .addComponent(btnSave))
-                                    .addComponent(txtNewPassword))))
+                                    .addComponent(txtNewPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)
                         .addComponent(lbSearch)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -315,6 +318,11 @@ public class ForgotPassword extends javax.swing.JFrame {
         this.dispose();
         login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void lbSearchMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSearchMouseEntered
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_lbSearchMouseEntered
 
     /**
      * @param args the command line arguments

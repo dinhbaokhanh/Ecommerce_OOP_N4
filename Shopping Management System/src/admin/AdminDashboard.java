@@ -10,6 +10,7 @@ import dao.SupplierDAO;
 import dao.TransactionDTO;
 import dao.UserBalanceDAO;
 import dao.UserDAO;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -223,9 +224,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         lbManageCategories = new javax.swing.JLabel();
         lbManageProducts = new javax.swing.JLabel();
         lbManageUsers = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lbAddSupplier = new javax.swing.JLabel();
         lbManageSupplier = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        lbSelectSupplier = new javax.swing.JLabel();
         lbTransaction = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -278,11 +279,11 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
                 .addComponent(lbAdminEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145)
+                .addGap(142, 142, 142)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134))
+                .addGap(123, 123, 123))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1))
@@ -315,7 +316,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel4)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,66 +326,115 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lbManageCategories.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbManageCategories.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbManageCategories.setForeground(new java.awt.Color(255, 255, 255));
+        lbManageCategories.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/purchasedetails_light.png"))); // NOI18N
         lbManageCategories.setText("Manage Categories");
         lbManageCategories.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbManageCategoriesMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbManageCategoriesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbManageCategoriesMouseExited(evt);
+            }
         });
 
-        lbManageProducts.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbManageProducts.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbManageProducts.setForeground(new java.awt.Color(255, 255, 255));
+        lbManageProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/box_light.png"))); // NOI18N
         lbManageProducts.setText("Manage Products");
         lbManageProducts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbManageProductsMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbManageProductsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbManageProductsMouseExited(evt);
+            }
         });
 
-        lbManageUsers.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbManageUsers.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbManageUsers.setForeground(new java.awt.Color(255, 255, 255));
+        lbManageUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         lbManageUsers.setText("Manage Users");
         lbManageUsers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbManageUsersMouseClicked(evt);
             }
-        });
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Add Supplier");
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel15MouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbManageUsersMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbManageUsersMouseExited(evt);
             }
         });
 
-        lbManageSupplier.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbAddSupplier.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbAddSupplier.setForeground(new java.awt.Color(255, 255, 255));
+        lbAddSupplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/supplier_light.png"))); // NOI18N
+        lbAddSupplier.setText("Add Supplier");
+        lbAddSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbAddSupplierMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbAddSupplierMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbAddSupplierMouseExited(evt);
+            }
+        });
+
+        lbManageSupplier.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbManageSupplier.setForeground(new java.awt.Color(255, 255, 255));
+        lbManageSupplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit_supplier_light.png"))); // NOI18N
         lbManageSupplier.setText("Manage Suppliers");
         lbManageSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbManageSupplierMouseClicked(evt);
             }
-        });
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Select Supplier");
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbManageSupplierMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbManageSupplierMouseExited(evt);
             }
         });
 
-        lbTransaction.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lbSelectSupplier.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbSelectSupplier.setForeground(new java.awt.Color(255, 255, 255));
+        lbSelectSupplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delivery_light.png"))); // NOI18N
+        lbSelectSupplier.setText("Select Supplier");
+        lbSelectSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbSelectSupplierMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbSelectSupplierMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbSelectSupplierMouseExited(evt);
+            }
+        });
+
+        lbTransaction.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbTransaction.setForeground(new java.awt.Color(255, 255, 255));
+        lbTransaction.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/transaction_light.png"))); // NOI18N
         lbTransaction.setText("Transaction");
         lbTransaction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbTransactionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbTransactionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbTransactionMouseExited(evt);
             }
         });
 
@@ -396,49 +446,55 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbManageSupplier)
+                    .addComponent(lbAddSupplier)
+                    .addComponent(lbManageUsers)
+                    .addComponent(lbManageCategories)
                     .addComponent(lbTransaction)
                     .addComponent(lbManageProducts)
-                    .addComponent(lbManageCategories)
-                    .addComponent(lbManageUsers)
-                    .addComponent(jLabel15)
-                    .addComponent(lbManageSupplier)
-                    .addComponent(jLabel17))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbSelectSupplier))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(lbManageCategories)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbManageProducts)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbManageUsers)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel15)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbAddSupplier)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbManageSupplier)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbSelectSupplier)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbTransaction)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 107, 189));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Statistics");
 
+        lbTotalCategories.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbTotalCategories.setText("Total Categories:");
 
+        lbTotalProducts.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbTotalProducts.setText("Total Products:");
 
+        lbTotalUsers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbTotalUsers.setText("Total Users:");
 
+        lbTotalSuppliers.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbTotalSuppliers.setText("Total Suppliers:");
 
+        lbTotalSales.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbTotalSales.setText("Total Sales:");
 
         txtTotalUsers.addActionListener(new java.awt.event.ActionListener() {
@@ -510,7 +566,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -524,7 +580,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(196, Short.MAX_VALUE))))
         );
 
         pack();
@@ -545,11 +601,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         manageUsers.setVisible(true);
     }//GEN-LAST:event_lbManageUsersMouseClicked
 
-    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+    private void lbAddSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAddSupplierMouseClicked
         // TODO add your handling code here:
         AddSupplier addSupplier = new AddSupplier(login, this);
         addSupplier.setVisible(true);
-    }//GEN-LAST:event_jLabel15MouseClicked
+    }//GEN-LAST:event_lbAddSupplierMouseClicked
 
     private void lbManageSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageSupplierMouseClicked
         // TODO add your handling code here:
@@ -569,11 +625,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         manageProduct.setVisible(true);
     }//GEN-LAST:event_lbManageProductsMouseClicked
 
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+    private void lbSelectSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSelectSupplierMouseClicked
         // TODO add your handling code here:
         SelectSupplier selectSupplier = new SelectSupplier(login, this);
         selectSupplier.setVisible(true);
-    }//GEN-LAST:event_jLabel17MouseClicked
+    }//GEN-LAST:event_lbSelectSupplierMouseClicked
 
     private void lbTransactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTransactionMouseClicked
         // TODO add your handling code here:
@@ -590,6 +646,90 @@ public class AdminDashboard extends javax.swing.JFrame {
         this.dispose();
         login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void lbManageCategoriesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageCategoriesMouseEntered
+        // TODO add your handling code here:
+        lbManageCategories.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        lbManageCategories.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_lbManageCategoriesMouseEntered
+
+    private void lbManageCategoriesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageCategoriesMouseExited
+        // TODO add your handling code here:
+        lbManageCategories.setBackground(null); // Khôi phục màu nền mặc định
+        lbManageCategories.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_lbManageCategoriesMouseExited
+
+    private void lbManageProductsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageProductsMouseEntered
+        // TODO add your handling code here:
+        lbManageProducts.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        lbManageProducts.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_lbManageProductsMouseEntered
+
+    private void lbManageProductsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageProductsMouseExited
+        // TODO add your handling code here:
+        lbManageProducts.setBackground(null); // Khôi phục màu nền mặc định
+        lbManageProducts.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_lbManageProductsMouseExited
+
+    private void lbManageUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageUsersMouseEntered
+        // TODO add your handling code here:
+        lbManageUsers.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        lbManageUsers.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_lbManageUsersMouseEntered
+
+    private void lbManageUsersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageUsersMouseExited
+        // TODO add your handling code here:
+        lbManageUsers.setBackground(null); // Khôi phục màu nền mặc định
+        lbManageUsers.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_lbManageUsersMouseExited
+
+    private void lbAddSupplierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAddSupplierMouseEntered
+        // TODO add your handling code here:
+        lbAddSupplier.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        lbAddSupplier.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_lbAddSupplierMouseEntered
+
+    private void lbAddSupplierMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAddSupplierMouseExited
+        // TODO add your handling code here:
+        lbAddSupplier.setBackground(null); // Khôi phục màu nền mặc định
+        lbAddSupplier.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_lbAddSupplierMouseExited
+
+    private void lbManageSupplierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageSupplierMouseEntered
+        // TODO add your handling code here:
+        lbManageSupplier.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        lbManageSupplier.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_lbManageSupplierMouseEntered
+
+    private void lbManageSupplierMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbManageSupplierMouseExited
+        // TODO add your handling code here:
+        lbManageSupplier.setBackground(null); // Khôi phục màu nền mặc định
+        lbManageSupplier.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_lbManageSupplierMouseExited
+
+    private void lbSelectSupplierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSelectSupplierMouseEntered
+        // TODO add your handling code here:
+        lbSelectSupplier.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        lbSelectSupplier.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_lbSelectSupplierMouseEntered
+
+    private void lbSelectSupplierMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSelectSupplierMouseExited
+        // TODO add your handling code here:
+        lbSelectSupplier.setBackground(null); // Khôi phục màu nền mặc định
+        lbSelectSupplier.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_lbSelectSupplierMouseExited
+
+    private void lbTransactionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTransactionMouseEntered
+        // TODO add your handling code here:
+        lbTransaction.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        lbTransaction.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_lbTransactionMouseEntered
+
+    private void lbTransactionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTransactionMouseExited
+        // TODO add your handling code here:
+        lbTransaction.setBackground(null); // Khôi phục màu nền mặc định
+        lbTransaction.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_lbTransactionMouseExited
 
     /**
      * @param args the command line arguments
@@ -629,8 +769,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
@@ -638,11 +776,13 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lbAddSupplier;
     private javax.swing.JLabel lbAdminEmail;
     private javax.swing.JLabel lbManageCategories;
     private javax.swing.JLabel lbManageProducts;
     private javax.swing.JLabel lbManageSupplier;
     private javax.swing.JLabel lbManageUsers;
+    private javax.swing.JLabel lbSelectSupplier;
     private javax.swing.JLabel lbTotalCategories;
     private javax.swing.JLabel lbTotalProducts;
     private javax.swing.JLabel lbTotalSales;
