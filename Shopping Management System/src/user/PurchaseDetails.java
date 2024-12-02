@@ -7,6 +7,7 @@ package user;
 import dao.CategoryDAO;
 import dao.ProductDAO;
 import dao.TransactionDTO;
+import dao.UserBalanceDAO;
 import dao.UserDAO;
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,6 +38,9 @@ public class PurchaseDetails extends javax.swing.JFrame {
     private List<TransactionDTO> transactionListMain = new ArrayList<>();
     private static final String FILE_NAME_TRANSACTION = "TRANSACTION.DAT";
 
+    private List<UserBalanceDAO> userBalanceList;
+    private static final String FILE_NAME_USERBALANCE = "USERBALANCE.DAT";
+
     private DefaultTableModel transactionModel;
 
     /**
@@ -57,6 +61,7 @@ public class PurchaseDetails extends javax.swing.JFrame {
         this.userDashboard = userDashboard;
         addTransactionToTable();
         txtCurrentDate.setText(getCurrentDate());
+        LoadDataUserBalance();
     }
 
     private String getCurrentDate() {
@@ -89,6 +94,19 @@ public class PurchaseDetails extends javax.swing.JFrame {
             }
         } else {
             transactionListMain = new ArrayList<>();  // Nếu tệp rỗng, khởi tạo danh sách trống
+        }
+    }
+
+    private void LoadDataUserBalance() {
+        File file = new File(FILE_NAME_USERBALANCE);
+        if (file.length() > 0) {
+            try (FileInputStream fis = new FileInputStream(FILE_NAME_USERBALANCE); ObjectInputStream ois = new ObjectInputStream(fis)) {
+                userBalanceList = (List<UserBalanceDAO>) ois.readObject();  // Đọc danh sách người dùng từ tệp
+            } catch (IOException | ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            userBalanceList = new ArrayList<>();  // Nếu tệp rỗng, khởi tạo danh sách trống
         }
     }
 
@@ -399,6 +417,16 @@ public class PurchaseDetails extends javax.swing.JFrame {
                                 break;
                             }
 
+                        }
+                        String tmpUserID = tmpTransaction.getUserID();
+                        for (int z = 0; z < userBalanceList.size(); z++) {
+                            UserBalanceDAO tmpUserBalanceDAO = userBalanceList.get(z);
+                            if (tmpUserBalanceDAO.getUserID().equals(tmpUserID)) {
+                                tmpUserBalanceDAO.setBalance(tmpUserBalanceDAO.getBalance() + tmpTransaction.getTotalPrice());
+                                login.setUserBalanceListDataReplace(userBalanceList);
+                                userDashboard.setBackUserBalanceAfterChange();
+                                break;
+                            }
                         }
                         JOptionPane.showMessageDialog(rootPane, "Refund thanh cong!");
                         txtPurchaseID.setText("");

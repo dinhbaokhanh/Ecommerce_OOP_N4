@@ -122,6 +122,12 @@ public class SupplierDashboard extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
         });
 
         lbSupplierEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -139,8 +145,8 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(lbSupplierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +173,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -330,6 +336,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         int a = JOptionPane.showConfirmDialog(rootPane, "Do you want to logout now?", "Logout", JOptionPane.YES_NO_OPTION);
         if (a == 0) {
             login.setVisible(true);
+            login.setEmailAndPasswordToDefault();
             this.dispose();
         }
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -391,6 +398,18 @@ public class SupplierDashboard extends javax.swing.JFrame {
     private void txtMyDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMyDeliveryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMyDeliveryActionPerformed
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        // TODO add your handling code here:
+        jLabel2.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        jLabel2.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        // TODO add your handling code here:
+        jLabel2.setBackground(null); // Khôi phục màu nền mặc định
+        jLabel2.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_jLabel2MouseExited
 
     /**
      * @param args the command line arguments

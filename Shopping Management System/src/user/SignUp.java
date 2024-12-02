@@ -504,6 +504,7 @@ public class SignUp extends javax.swing.JFrame {
             if (isEmailExist(email)) {
                 login.setAccount(new UserDAO(id, username, email, password, phone, securityQuestion, ans, address));
                 userBalanceList.add(new UserBalanceDAO(id, (double) 0));
+                JOptionPane.showMessageDialog(rootPane, "Tao tai khoan thanh cong!");
                 login.setUserBalanceListDataReplace(userBalanceList);
                 login.setEmailAndPasswordToDefault();
                 login.setVisible(true);

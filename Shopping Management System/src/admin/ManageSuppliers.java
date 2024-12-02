@@ -391,7 +391,7 @@ public class ManageSuppliers extends javax.swing.JFrame {
                         login.setSupplierListData(supplierList);
                         JOptionPane.showMessageDialog(rootPane, "Xoa thong tin thanh cong!");
                         clear();
-                        adminDashboard.setTotalCategoriesNew();
+                        adminDashboard.setTotalSuppliersNew();
                         model.setRowCount(0);
                         addSupplierToTable();
                         break;

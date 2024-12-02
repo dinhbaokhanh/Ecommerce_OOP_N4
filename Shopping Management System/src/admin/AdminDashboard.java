@@ -258,6 +258,12 @@ public class AdminDashboard extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
         });
 
         lbAdminEmail.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -282,8 +288,8 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 302, Short.MAX_VALUE)
                 .addComponent(lbAdminEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(142, 142, 142)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(135, 135, 135))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1))
@@ -314,16 +320,16 @@ public class AdminDashboard extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lbManageCategories.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -591,6 +597,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         int a = JOptionPane.showConfirmDialog(rootPane, "Do you want to logout now?", "Logout", JOptionPane.YES_NO_OPTION);
         if (a == 0) {
             login.setVisible(true);
+            login.setEmailAndPasswordToDefault();
             this.dispose();
         }
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -730,6 +737,18 @@ public class AdminDashboard extends javax.swing.JFrame {
         lbTransaction.setBackground(null); // Khôi phục màu nền mặc định
         lbTransaction.setOpaque(false); // Không hiển thị màu nền
     }//GEN-LAST:event_lbTransactionMouseExited
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        // TODO add your handling code here:
+        jLabel2.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        jLabel2.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        // TODO add your handling code here:
+        jLabel2.setBackground(null); // Khôi phục màu nền mặc định
+        jLabel2.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_jLabel2MouseExited
 
     /**
      * @param args the command line arguments

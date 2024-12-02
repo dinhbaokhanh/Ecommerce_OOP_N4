@@ -97,6 +97,16 @@ public class UserDashboard extends javax.swing.JFrame {
         txtUserBalance.setText(userBalance.getBalance().toString());
     }
 
+    public void setBackUserBalanceAfterChange() {
+        LoadDataUserBalance();
+        determineUserBalance();
+        setUserBlanceText();
+    }
+
+    public String getTxtBalance() {
+        return txtUserBalance.getText().toString();
+    }
+
     public void determineUserBalance() {
         if (userBalanceList.size() > 0) {
             String tmpUserID = this.user.getUserID();
@@ -139,7 +149,6 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbUserEmail = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -173,19 +182,18 @@ public class UserDashboard extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
         });
 
         lbUserEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbUserEmail.setForeground(new java.awt.Color(255, 255, 255));
         lbUserEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
         lbUserEmail.setText("user@gmail.com");
-
-        jButton1.setText("X");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -195,19 +203,15 @@ public class UserDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
-                .addComponent(lbUserEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(lbUserEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(5, 5, 5)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -430,6 +434,7 @@ public class UserDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         int a = JOptionPane.showConfirmDialog(rootPane, "Do you want to logout now?", "Logout", JOptionPane.YES_NO_OPTION);
         if (a == 0) {
+            login.setEmailAndPasswordToDefault();
             login.setVisible(true);
             this.dispose();
         }
@@ -506,12 +511,6 @@ public class UserDashboard extends javax.swing.JFrame {
         lbPurchaseDetail.setOpaque(false); // Không hiển thị màu nền
     }//GEN-LAST:event_lbPurchaseDetailMouseExited
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        login.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void lbMyAccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMyAccountMouseEntered
         // TODO add your handling code here:
         lbMyAccount.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
@@ -523,6 +522,18 @@ public class UserDashboard extends javax.swing.JFrame {
         lbMyAccount.setBackground(null); // Khôi phục màu nền mặc định
         lbMyAccount.setOpaque(false); // Không hiển thị màu nền
     }//GEN-LAST:event_lbMyAccountMouseExited
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        // TODO add your handling code here:
+        jLabel2.setBackground(Color.LIGHT_GRAY); // Màu nền sáng
+        jLabel2.setOpaque(true); // Đảm bảo JLabel hiển thị màu nền
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        // TODO add your handling code here:
+        jLabel2.setBackground(null); // Khôi phục màu nền mặc định
+        jLabel2.setOpaque(false); // Không hiển thị màu nền
+    }//GEN-LAST:event_jLabel2MouseExited
 
     /**
      * @param args the command line arguments
@@ -561,7 +572,6 @@ public class UserDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddMoreBalance;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
