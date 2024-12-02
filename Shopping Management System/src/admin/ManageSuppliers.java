@@ -1,0 +1,554 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package admin;
+
+import dao.SupplierDAO;
+import dao.UserDAO;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import user.Login;
+
+/**
+ *
+ * @author admin
+ */
+public class ManageSuppliers extends javax.swing.JFrame {
+
+    private Login login;
+
+    private List<SupplierDAO> supplierList;
+    private static final String FILE_NAME_SUPPLIER = "SUPPLIER.DAT";
+
+    private SupplierDAO supplier = new SupplierDAO();
+    private AdminDashboard adminDashboard;
+
+    private DefaultTableModel model;
+
+    /**
+     * Creates new form ManageSuppliers
+     */
+    public ManageSuppliers() {
+        initComponents();
+        setLocationRelativeTo(null);
+        model = (DefaultTableModel) tblSupplier.getModel();
+        LoadDataSupplier();
+    }
+
+    public ManageSuppliers(Login login, AdminDashboard adminDashboard) {
+        this();
+        this.login = login;
+        this.adminDashboard = adminDashboard;
+        addSupplierToTable();
+    }
+
+    private void LoadDataSupplier() {
+        File file = new File(FILE_NAME_SUPPLIER);
+        if (file.length() > 0) {
+            try (FileInputStream fis = new FileInputStream(FILE_NAME_SUPPLIER); ObjectInputStream ois = new ObjectInputStream(fis)) {
+                supplierList = (List<SupplierDAO>) ois.readObject();  // Đọc danh sách người dùng từ tệp
+            } catch (IOException | ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            supplierList = new ArrayList<>();  // Nếu tệp rỗng, khởi tạo danh sách trống
+        }
+    }
+
+    public void addSupplierToTable() {
+
+        for (SupplierDAO supplier : supplierList) {
+            Object[] newRow = {
+                supplier.getSupplierID(),
+                supplier.getSupplierName(),
+                supplier.getSupplierEmail(),
+                supplier.getSupplierPassword(),
+                supplier.getSupplierPhone(),
+                supplier.getSupplierAddress()
+            };
+
+            model.addRow(newRow);
+        }
+    }
+
+    public boolean isInformationValid() {
+        if (txtSupplierName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Username is required", "Warning", 2);
+            return false;
+        }
+        if (txtSupplierEmail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Email is required", "Warning", 2);
+            return false;
+        }
+        if (!txtSupplierEmail.getText().contains("@")) {
+            JOptionPane.showMessageDialog(rootPane, "Email is invalid!", "Warning", 2);
+            return false;
+        }
+        if (!txtSupplierEmail.getText().contains(".com")) {
+            JOptionPane.showMessageDialog(rootPane, "Email is invalid!", "Warning", 2);
+            return false;
+        }
+        if (String.valueOf(txtSupplierPassword.getPassword()).isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Password is required!", "Warning", 2);
+            return false;
+        }
+        if (txtSupplierPhone.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "phone is required", "Warning", 2);
+            return false;
+        }
+        if (txtSupplierAddress.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Address is required", "Warning", 2);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkIfNewInformationValid() {
+        String newEmail = txtSupplierEmail.getText();
+        String newPhone = txtSupplierPhone.getText();
+        for (SupplierDAO supplier : supplierList) {
+            if (supplier.getSupplierEmail().equals(newEmail)) {
+                JOptionPane.showMessageDialog(rootPane, "Email already exists", "Warning", 2);
+                return false;
+            }
+            if (supplier.getSupplierPhone().equals(newPhone)) {
+                JOptionPane.showMessageDialog(rootPane, "PhoneNumber already exists", "Warning", 2);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void clear() {
+        txtSupplierID.setText("");
+        txtSupplierName.setText("");
+        txtSupplierEmail.setText("");
+        txtSupplierPassword.setText("");
+        txtSupplierPhone.setText("");
+        txtSupplierAddress.setText("");
+        tblSupplier.clearSelection();
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        btnClear = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSupplier = new javax.swing.JTable();
+        txtSearchQuery = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
+        txtSupplierEmail = new javax.swing.JTextField();
+        txtSupplierAddress = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtSupplierPassword = new javax.swing.JPasswordField();
+        btnDelete = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtSupplierID = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtSupplierName = new javax.swing.JTextField();
+        txtSupplierPhone = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnSearchByEmail = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
+        tblSupplier.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Supplier ID", "Name", "Email", "Password", "Phone", "Address"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSupplierMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblSupplier);
+
+        txtSearchQuery.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchQueryActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Email:");
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Password:");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hide.png"))); // NOI18N
+
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Phone:");
+
+        jLabel2.setText("Supplier ID:");
+
+        txtSupplierID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSupplierIDActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Address:");
+
+        jLabel3.setText("Name:");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Sign Up");
+
+        btnSearchByEmail.setText("Search By Email:");
+        btnSearchByEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchByEmailActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("X");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnClear)
+                .addGap(93, 93, 93))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 12, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSearchByEmail)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtSupplierAddress)
+                                    .addComponent(txtSupplierID, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                                    .addComponent(txtSupplierName)
+                                    .addComponent(txtSupplierEmail)
+                                    .addComponent(txtSupplierPassword)
+                                    .addComponent(txtSupplierPhone))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel10)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSearchQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(121, 121, 121))
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSupplierID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSupplierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSupplierPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSupplierPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnDelete)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSupplierAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))))
+                .addGap(18, 18, 18)
+                .addComponent(btnClear)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchQuery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchByEmail))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+        clear();
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void txtSearchQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchQueryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchQueryActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        if (tblSupplier.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(rootPane, "Choose a Supplier First!", "Warning", 2);
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(rootPane,
+                    "Are you sure to delete this supplier?", "Delete Account", JOptionPane.OK_CANCEL_OPTION, 0);
+            if (confirm == JOptionPane.OK_OPTION) {
+                String currentSupplierID = txtSupplierID.getText();
+                for (int i = 0; i < supplierList.size(); i++) {
+                    SupplierDAO tmpSupplier = supplierList.get(i);
+                    if (tmpSupplier.getSupplierID().equals(currentSupplierID)) {
+                        supplierList.remove(i);
+                        login.setSupplierListData(supplierList);
+                        JOptionPane.showMessageDialog(rootPane, "Xoa thong tin thanh cong!");
+                        clear();
+                        adminDashboard.setTotalCategoriesNew();
+                        model.setRowCount(0);
+                        addSupplierToTable();
+                        break;
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "ok");
+            }
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void txtSupplierIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSupplierIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSupplierIDActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        if (isInformationValid()) {
+            if (checkIfNewInformationValid()) {
+                String supplierID = txtSupplierID.getText();
+                String newSupplierName = txtSupplierName.getText();
+                String newEmail = txtSupplierEmail.getText();
+                String newPassword = String.valueOf(txtSupplierPassword.getPassword());
+                String newPhone = txtSupplierPhone.getText();
+                String newAddress = txtSupplierAddress.getText();
+
+                for (int i = 0; i < supplierList.size(); i++) {
+                    SupplierDAO supplier = supplierList.get(i);
+                    if (supplier.getSupplierID().equals(supplierID)) {
+                        supplier.setSupplierName(newSupplierName);
+                        supplier.setSupplierEmail(newEmail);
+                        supplier.setSupplierPassword(newPassword);
+                        supplier.setSupplierPhone(newPhone);
+                        supplier.setSupplierAddress(newAddress);
+                        JOptionPane.showMessageDialog(rootPane, "Sua thong tin thanh cong!");
+                        clear();
+                        login.setSupplierListData(supplierList);
+                        adminDashboard.setTotalSuppliersNew();
+                        model.setRowCount(0);
+                        addSupplierToTable();
+                        break;
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void searchByName(String searchQuery) {
+        model.setRowCount(0);
+
+        for (SupplierDAO supplier : supplierList) {
+            if (supplier.getSupplierEmail().toLowerCase().contains(searchQuery.toLowerCase())) {
+                model.addRow(new Object[]{
+                    supplier.getSupplierID(),
+                    supplier.getSupplierName(),
+                    supplier.getSupplierEmail(),
+                    supplier.getSupplierPassword(),
+                    supplier.getSupplierPhone(),
+                    supplier.getSupplierAddress()
+                });
+            }
+        }
+    }
+
+    private void btnSearchByEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchByEmailActionPerformed
+        // TODO add your handling code here:
+        String searchQuery = txtSearchQuery.getText().trim();
+
+        // Gọi hàm tìm kiếm nếu người dùng nhập tên
+        if (!searchQuery.isEmpty()) {
+            searchByName(searchQuery);
+        } else {
+            model.setRowCount(0);
+            addSupplierToTable();
+        }
+    }//GEN-LAST:event_btnSearchByEmailActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tblSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSupplierMouseClicked
+        // TODO add your handling code here:
+        int rowIndex = tblSupplier.getSelectedRow();
+
+        // Đảm bảo rằng dòng được chọn hợp lệ
+        if (rowIndex != -1) {
+            // Lấy mô hình dữ liệu của bảng
+            DefaultTableModel model = (DefaultTableModel) tblSupplier.getModel();
+
+            // Gán giá trị từ các cột của dòng được chọn vào các JTextField
+            txtSupplierID.setText(model.getValueAt(rowIndex, 0).toString()); // Cột 0 - User ID
+            txtSupplierName.setText(model.getValueAt(rowIndex, 1).toString()); // Cột 1 - Username
+            txtSupplierEmail.setText(model.getValueAt(rowIndex, 2).toString()); // Cột 2 - Email
+            txtSupplierPassword.setText(model.getValueAt(rowIndex, 3).toString()); // Cột 3 - Password
+            txtSupplierPhone.setText(model.getValueAt(rowIndex, 4).toString()); // Cột 4 - Phone
+            txtSupplierAddress.setText(model.getValueAt(rowIndex, 5).toString()); // Cột 7 - Address
+        }
+    }//GEN-LAST:event_tblSupplierMouseClicked
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ManageSuppliers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ManageSuppliers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ManageSuppliers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ManageSuppliers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ManageSuppliers().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSearchByEmail;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblSupplier;
+    private javax.swing.JTextField txtSearchQuery;
+    private javax.swing.JTextField txtSupplierAddress;
+    private javax.swing.JTextField txtSupplierEmail;
+    private javax.swing.JTextField txtSupplierID;
+    private javax.swing.JTextField txtSupplierName;
+    private javax.swing.JPasswordField txtSupplierPassword;
+    private javax.swing.JTextField txtSupplierPhone;
+    // End of variables declaration//GEN-END:variables
+}
